@@ -29,10 +29,10 @@ public class SpringSecuriteBasiqueApplication {
             userService.addUser(new User(null, "patient2", "1234", new ArrayList<>()));
             userService.addUser(new User(null, "patient3", "1234", new ArrayList<>()));
 
-            userService.addRolesToUser("admin", "ADMIN");
-            userService.addRolesToUser("patient1", "PATIENT");
-//            userService.addRolesToUser("patient2", "ROLE_PATIENT");
-//            userService.addRolesToUser("patient3", "ROLE_PATIENT");
+//            userService.addRolesToUser("admin", "ADMIN");
+//            userService.addRolesToUser("patient1", "PATIENT");
+            userService.addRolesToUser("patient2", "PATIENT");
+//            userService.addRolesToUser("patient3", "PATIENT");
 
         };
     }

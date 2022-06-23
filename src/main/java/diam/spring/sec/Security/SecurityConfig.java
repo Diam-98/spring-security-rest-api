@@ -29,11 +29,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
                 User user = userService.LoadByUsername(username);
+//                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(user.getRole().getName());
                 Collection<GrantedAuthority> authorities = new ArrayList<>();
                 user.getRole().forEach(r->{
+                    System.out.println(r.getName());
                     authorities.add(new SimpleGrantedAuthority(r.getName()));
                 });
-
+                //System.out.println(grantedAuthority);
                 return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), authorities);
             }
         });
@@ -42,6 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin();
-        http.authorizeRequests().antMatchers("/users/**").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers("/users/**").hasAuthority("ADMIN");
     }
 }

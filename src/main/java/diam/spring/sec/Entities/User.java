@@ -2,7 +2,6 @@ package diam.spring.sec.Entities;
 
 import lombok.*;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -14,6 +13,7 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
