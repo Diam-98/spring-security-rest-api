@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -19,8 +20,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String userName;
-    private String password;
-    @OneToMany(fetch = FetchType.EAGER)
+
+    private String Password;
+    @ManyToMany(fetch = FetchType.EAGER)
     private Collection<UserRoles> role;
 
     @Override
